@@ -1,8 +1,9 @@
+
 // Name: Sarah Mohammed Althobiti , Student ID: 444004881.
 import java.util.Scanner;
+
 public class lap1 {
 
-    
     public static void insertElement(int[] A, int count, int key) {
 
         if (count == A.length) {
@@ -30,7 +31,7 @@ public class lap1 {
         if (count == 0) {
             System.out.println("The Array is empty");
         } else {
-          int  i = Search(A, count, key);
+            int i = Search(A, count, key);
             if (i == -1) {
                 System.out.println("The element not found");
             } else {
@@ -43,38 +44,39 @@ public class lap1 {
         }
     }
 
-    public static void sort(int[] A, int count){
+    public static void sort(int[] A, int count) {
         int temp;
-        for(int i = 0; i < count; i++){
-            for(int j = i+1 ; j < count ; j++){
-             if(A[i] > A[j]){
-                temp =  A[i];
-                A[i] =  A[j];
-                A[j] = temp;
-             }
-            }
-        }
-        print(A, count);
-    }
-
-    public static void removeDuplicat(int[] A, int count){
-        for(int i = 0; i < count; i++ ){
-            for(int j = i + 1; j < count; j++){
-                if(A[i] == A[j]){
-                 delete(A, count, A[j]);
-
+        for (int i = 0; i < count; i++) {
+            for (int j = i + 1; j < count; j++) {
+                if (A[i] > A[j]) {
+                    temp = A[i];
+                    A[i] = A[j];
+                    A[j] = temp;
                 }
             }
         }
         print(A, count);
     }
-    public static void print(int[] A, int count){
-        for(int i = 0; i < count; i++){
-            System.out.print(A[i]+" ");
+
+    public static void removeDuplicat(int[] A, int count) {
+        for (int i = 0; i < count; i++) {
+            for (int j = i + 1; j < count; j++) {
+                if (A[i] == A[j]) {
+                    delete(A, count, A[j]);
+
+                }
+            }
+        }
+        
+    }
+
+    public static void print(int[] A, int count) {
+        for (int i = 0; i < count; i++) {
+            System.out.print(A[i] + " ");
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         int[] myArray = new int[20];
         myArray[0] = 1;
@@ -82,10 +84,10 @@ public class lap1 {
         myArray[2] = 2;
         myArray[3] = 5;
         myArray[4] = 5;
-        int count = 4;
+        int count = 5;
         boolean flag = true;
 
-        while(flag){
+        while (flag) {
 
             Scanner scnr = new Scanner(System.in);
 
@@ -96,42 +98,38 @@ public class lap1 {
             System.out.println("4. Sort the array");
             System.out.println("5. Remove duplicate elements from the array");
             System.out.println("6. Exit");
+
             int opNum = scnr.nextInt();
-            if(opNum == 1){
+            if (opNum == 1) {
                 System.out.println(" Enter the element");
                 int key = scnr.nextInt();
                 insertElement(myArray, count, key);
 
-            }else if(opNum == 2){
-              System.out.println(" Enter the element");
-              int key = scnr.nextInt();
-              int i = Search(myArray, count, key);
-              if(i == -1){
-                System.out.println("Not found");
-              }else{
-                System.out.println("the index of the element = "+i);
-              }
-                
-            }else if(opNum == 3){
+            } else if (opNum == 2) {
+                System.out.println(" Enter the element");
+                int key = scnr.nextInt();
+                int i = Search(myArray, count, key);
+                if (i == -1) {
+                    System.out.println("Not found");
+                } else {
+                    System.out.println("the index of the element = " + i);
+                }
+
+            } else if (opNum == 3) {
                 System.out.println(" Enter the element");
                 int key = scnr.nextInt();
                 delete(myArray, count, key);
-            }else if(opNum == 4){
+            } else if (opNum == 4) {
                 sort(myArray, count);
-            }else if(opNum == 5){
+            } else if (opNum == 5) {
                 removeDuplicat(myArray, count);
-            }else if(opNum == 6){
+            } else if (opNum == 6) {
                 flag = false;
             }
 
-
         }
         System.out.println("Thank you");
-        
 
-
-        
-         
     }
 
 }
