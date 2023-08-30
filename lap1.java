@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class lap1 {
 
-    public static void insertElement(int[] A, int count, int key) {
+    public static int insertElement(int[] A, int count, int key) {
 
         if (count == A.length) {
             System.out.println("The array is full! ");
@@ -13,6 +13,7 @@ public class lap1 {
             count++;
         }
         print(A, count);
+        return count;
 
     }
 
@@ -27,7 +28,7 @@ public class lap1 {
 
     }
 
-    public static void delete(int[] A, int count, int key) {
+    public static int delete(int[] A, int count, int key) {
         if (count == 0) {
             System.out.println("The Array is empty");
         } else {
@@ -39,9 +40,10 @@ public class lap1 {
                     A[s] = A[s + 1];
                 }
                 count--;
-                print(A, count);
+               
             }
         }
+        return count;
     }
 
     public static void sort(int[] A, int count) {
@@ -58,15 +60,16 @@ public class lap1 {
         print(A, count);
     }
 
-    public static void removeDuplicat(int[] A, int count) {
+    public static int removeDuplicat(int[] A, int count) {
         for (int i = 0; i < count; i++) {
             for (int j = i + 1; j < count; j++) {
                 if (A[i] == A[j]) {
-                    delete(A, count, A[j]);
+                   count = delete(A, count, A[j]);
 
                 }
             }
         }
+        return count;
         
     }
 
@@ -103,7 +106,7 @@ public class lap1 {
             if (opNum == 1) {
                 System.out.println(" Enter the element");
                 int key = scnr.nextInt();
-                insertElement(myArray, count, key);
+               count = insertElement(myArray, count, key);
 
             } else if (opNum == 2) {
                 System.out.println(" Enter the element");
@@ -118,11 +121,13 @@ public class lap1 {
             } else if (opNum == 3) {
                 System.out.println(" Enter the element");
                 int key = scnr.nextInt();
-                delete(myArray, count, key);
+              count =  delete(myArray, count, key);
+              print(myArray, count);
             } else if (opNum == 4) {
                 sort(myArray, count);
             } else if (opNum == 5) {
-                removeDuplicat(myArray, count);
+               count = removeDuplicat(myArray, count);
+               print(myArray, count);
             } else if (opNum == 6) {
                 flag = false;
             }
